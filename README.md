@@ -6,4 +6,4 @@ as easy as possible create cluster kubernetes with K3s and running some tools fo
 Before go through be sure ansible installed on youre mashine and check connection.
 Just edit inventory.yaml and edit Machine IP slave, master
 ## Run
-ansible-playbook -i inventory.yaml tasks/min.yaml
+ansible-playbook -i inventory.yaml tasks/main.yaml
