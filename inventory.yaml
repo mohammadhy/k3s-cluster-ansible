@@ -1,0 +1,9 @@
+[all]
+192.168.154.141
+192.168.154.142
+
+[master]
+192.168.154.141 ansible_ssh_pass=123 ansible_ssh_user=user ansible_become_pass=123
+
+[slave]
+192.168.154.142 ansible_ssh_pass=123 ansible_ssh_user=user ansible_become_pass=123
