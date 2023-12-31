@@ -17,7 +17,7 @@
   become: true
   tasks:
   - name: Check Installation K3s
-    shell: k3s
+    shell: which k3s
     register: check_install_k3s
     ignore_errors: yes
 
