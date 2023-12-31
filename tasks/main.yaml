@@ -3,7 +3,7 @@
   become: true
   tasks:
   - name: Check Installation Docker
-    shell: ls /etc/docker
+    shell: which docker
     register: check_install
     ignore_errors: yes
 
@@ -11,7 +11,7 @@
     apt:
       name: docker.io
       state: present
-    when: check_install.stdout == " "
+    when: check_install.stdout == ""
 
 - hosts: master
   become: true
@@ -23,7 +23,7 @@
 
   - name: Install k3s
     shell: curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server --disable=servicelb K3S_TOKEN=10112022 --docker --bind-address=$(hostname -I | awk '{print $1}')" sh -s -
-    when: check_install_k3s == " "
+    when: check_install_k3s == ""
 
   - name: Copy Token
     shell: scp /var/lib/rancher/k3s/server/agent-token user@192.168.154.142:/tmp/k3s_token.txt
