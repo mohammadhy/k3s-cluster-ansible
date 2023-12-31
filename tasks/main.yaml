@@ -20,7 +20,6 @@
   - name: Check Installation Docker
     shell: k3s
     register: check_install_k3s
-    ignore_errors: yes
 
   - name: Install k3s
     shell: curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server --disable=servicelb K3S_TOKEN=10112022 --docker --bind-address=$(hostname -I | awk '{print $1}')" sh -s -
