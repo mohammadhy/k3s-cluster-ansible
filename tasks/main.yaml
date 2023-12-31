@@ -47,7 +47,7 @@
     shell: curl -sfL https://get.k3s.io | K3S_URL=https://$(echo $(cat /tmp/k3s_ip.txt)):6443 K3S_TOKEN=$(echo $(cat /tmp/k3s_token.txt)) sh -
     when: check_install_k3s_agent == ""
 
-- hosts: manifest
+- hosts: master
   become: true
   tasks:
   - name: Clone All manifest To
