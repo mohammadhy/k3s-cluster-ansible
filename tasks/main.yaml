@@ -26,14 +26,14 @@
     when: check_install_k3s.stdout == ""
 
   - name: Copy Token
-    shell: scp /var/lib/rancher/k3s/server/agent-token user@192.168.154.142:/tmp/k3s_token.txt
+    shell: scp /var/lib/rancher/k3s/server/agent-token user@{{ worker }}:/tmp/k3s_token.txt
 
   - name: Copy Ip
     shell: |
       echo $(hostname -I | awk '{print $1}') > /tmp/k3s_ip.txt
 
   - name: Copy Token
-    shell: scp /tmp/k3s_ip.txt user@192.168.154.142:/tmp/k3s_ip.txt
+    shell: scp /tmp/k3s_ip.txt user@{{ worker }}:/tmp/k3s_ip.txt
 
 - hosts: slave
   become: true
