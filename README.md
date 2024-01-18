@@ -7,6 +7,8 @@ Before go through be sure ansible installed on youre mashine and check connectio
 Just edit inventory.yaml and edit Machine IP slave, master
 ## Run
 apt install sshpass
+
+
 vim /etc/ansible/ansible.cfg
 
 
