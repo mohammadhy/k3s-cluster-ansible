@@ -18,4 +18,4 @@ vim /etc/ansible/ansible.cfg
   host_key_checking=false
 
   
-ansible-playbook -i inventory.yaml tasks/main.yaml
+ansible-playbook -i inventory.yaml -e "worker=<worker_ip_address>" tasks/main.yaml
