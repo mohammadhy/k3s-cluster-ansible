@@ -44,7 +44,7 @@
     ignore_errors: yes
 
   - name: Join To Cluster
-    shell: curl -sfL https://get.k3s.io | K3S_URL=https://$(echo $(cat /tmp/k3s_ip.txt)):6443 K3S_TOKEN=$(echo $(cat /tmp/k3s_token.txt)) sh -
+    shell: curl -sfL https://get.k3s.io | K3S_URL=https://$(echo $(cat /tmp/k3s_ip.txt)):6443 K3S_TOKEN=$(echo $(cat /tmp/k3s_token.txt)) sh -s  - agent --docker 
     when: check_install_k3s_agent.stdout == ""
 
 - hosts: master
