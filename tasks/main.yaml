@@ -22,7 +22,7 @@
     ignore_errors: yes
 
   - name: Install k3s
-    shell: curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server --disable=servicelb --disable=traefik K3S_TOKEN=10112022 --docker --bind-address=$(hostname -I | awk '{print $1}')" sh -s -
+    shell: curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server --disable=servicelb --disable=traefik --docker --bind-address=$(hostname -I | awk '{print $1}')" sh -s -
     when: check_install_k3s.stdout == ""
 
   - name: Copy Token
